@@ -1,3 +1,15 @@
+<#
+================================================================================
+ Script        : Get-ADinfo.ps1
+ Description   : List information about current Active Directory Domain (number of objects, levels, etc...)
+ Author        : Dylan Rodrigues 
+ Created on    : 12/03/2025
+ Version       : v1.0
+ Last update   : 12/03/2025
+
+================================================================================
+#>
+
 # Get counts of different types of objects in Active Directory
 $Computers = (Get-ADComputer -Filter * | Measure-Object).Count
 $Workstations = (Get-ADComputer -Filter { OperatingSystem -notlike "*Server*" } | Measure-Object).Count
